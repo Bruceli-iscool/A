@@ -7,6 +7,16 @@ def interpret_stdlib(line, varnames):
         line = line.lstrip("math.")
         if line.startswith("println."):
             line = line.lstrip("println.")
+            if line.startswith("solve("):
+                line = line.replace("solve(", "")
+                line = line.replace(")", "")
+                line = line.replace(" ", "")
+                for key, value in varnames.items():
+                    line = line.replace(str(key), (value))
+                if ';' not in line:
+                    print("a: An error occured: Expected ';'")
+                else:
+                    print(eval(line))
             if line.startswith("sum("):
                 line = line.lstrip("sum(")
                 line = line.replace(")", "")
