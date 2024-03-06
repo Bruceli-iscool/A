@@ -11,6 +11,8 @@ def interpret_stdlib(line, varnames):
                 line = line.lstrip("sum(")
                 line = line.replace(")", "")
                 strline = line.replace(" ", "")
+                for key, value in varnames.items():
+                    strline = strline.replace(str(key), str(value))
                 if ';' not in line:
                     print("a: An error occured: Expected ';'")
                 else:
@@ -23,6 +25,8 @@ def interpret_stdlib(line, varnames):
                 line = line.lstrip("sum(")
                 line = line.replace(")", "")
                 line = line.replace(" ", "")
+                for key, value in varnames.items():
+                    line = line.replace(str(key), str(value))
                 if ';' not in line:
                     print("a: An error occured: Expected ';'")
                 else:
