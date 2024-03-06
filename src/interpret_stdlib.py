@@ -1,6 +1,7 @@
 import re
 
-def interpret_stdlib(line):
+def interpret_stdlib(line, varnames):
+    """Interpret stdlib functions"""
     if line.startswith("math."):
         # math libary
         line = line.lstrip("math.")
@@ -8,20 +9,28 @@ def interpret_stdlib(line):
             line = line.lstrip("printnf.")
             if line.startswith("sum("):
                 line = line.lstrip("sum(")
-                line = line.rstrip(")")
+                line = line.replace(")", "")
                 strline = line.replace(" ", "")
-                if '+' in strline and '-' and '*' and '/' and '%' not in strline:
-                    print(eval(strline))
+                if ';' not in line:
+                    print("a: An error occured: Expected ';'")
                 else:
-                    print("a: An error occured: Unsupported operation")
+                    strline = strline.replace(';', "")
+                    if '+' in strline and '-' and '*' and '/' and '%' not in strline:
+                        print(eval(strline))
+                    else:
+                        print("a: An error occured: Unsupported operation")
             elif line.startswith("sub("):
                 line = line.lstrip("sum(")
-                line = line.rstrip(")")
+                line = line.replace(")", "")
                 line = line.replace(" ", "")
-                if '-' in line and '+' and '*' and '/' and '%' not in strline:
-                    print(eval(strline))
+                if ';' not in line:
+                    print("a: An error occured: Expected ';'")
                 else:
-                    print("a: An error occured: Unsupported operation")
+                    line = line.replace(';', "")
+                    if '-' in line and '+' and '*' and '/' and '%' not in line:
+                        print(eval(line))
+                    else:
+                        print("a: An error occured: Unsupported operation")
         elif line.startswith("string."):
             line = line.lstrip("string.")
             if line.startswith("newline()"):
