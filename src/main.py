@@ -1,9 +1,10 @@
 import interpret
 import open_file
+import shell
 import sys
 
 def main():
-    print("The A interpreter.\nlicense() for license or exit() to exit()\nType .test to use the interactive interperter.\n")
+    print("The A interpreter.\nlicense() for license or exit() to exit()\nType .test to use the interactive interperter.")
     while True:
         userinput = input(">")
         if userinput.startswith("license()"):
@@ -11,7 +12,7 @@ def main():
         elif userinput.startswith("exit()"):
             sys.exit()
         elif userinput.startswith(".test"):
-            pass
+            shell.shell()
         else:
             try:
                 open_file.open_file(userinput)

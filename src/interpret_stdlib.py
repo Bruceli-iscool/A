@@ -12,7 +12,7 @@ def interpret_stdlib(line, varnames):
                 line = line.replace(")", "")
                 strline = line.replace(" ", "")
                 for key, value in varnames.items():
-                    strline = strline.replace(str(key), str(value))
+                    strline = strline.replace(str(key), (value))
                 if ';' not in line:
                     print("a: An error occured: Expected ';'")
                 else:

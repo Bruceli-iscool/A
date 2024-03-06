@@ -16,10 +16,10 @@ def interpret(line):
             print("a: An error occured: missing a ';'")
         else:
             try:
-                line = line.rstrip(';')
+                line = line.replace(';', "")
                 print(eval(line))
             except Exception as e:
-                line = line.rstrip(';')
+                line = line.replace(';', "")
                 print(line)
     elif "=" in line:
         line = line.replace(" ", "")
@@ -35,11 +35,3 @@ def interpret(line):
 
     
 
-interpret("echo 'hi';")
-interpret("string.newline()")
-interpret("y = 6;")
-interpret("math.printnf.sum(1 + y);")
-interpret("x= 5;")
-print(var)
-interpret("echo x fhdsj;")
-interpret("# this is a comment")
