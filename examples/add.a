@@ -1,0 +1,6 @@
+# Add two numbers
+# say num1 = 5
+num1 = 5;
+# and num2 = 2
+num2 = 2;
+math.println.sum(num2 + num1);

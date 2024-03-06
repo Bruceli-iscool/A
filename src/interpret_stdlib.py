@@ -5,8 +5,8 @@ def interpret_stdlib(line, varnames):
     if line.startswith("math."):
         # math libary
         line = line.lstrip("math.")
-        if line.startswith("printnf."):
-            line = line.lstrip("printnf.")
+        if line.startswith("println."):
+            line = line.lstrip("println.")
             if line.startswith("sum("):
                 line = line.lstrip("sum(")
                 line = line.replace(")", "")
