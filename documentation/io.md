@@ -4,4 +4,3 @@ In programming, input and output is very important. In A output can be done with
 
         echo 'hi';
         echo 1 + 55/5;
-The 'echo' function does not print a newline at the end. Nor does the math libaries .printnf function.
