@@ -22,7 +22,9 @@ Naming convention:
 
 # Credits
 Version 1.0 of the A Lang Standards.
+
 2024 Bruce Li
+
 Redistrabution is allowed as long as this statement is kept.
 
     
