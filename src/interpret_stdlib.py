@@ -82,6 +82,15 @@ def interpret_stdlib(line, varnames):
             print("\n")
     elif line.startswith("statistics."):
         # statistics libary
-        pass
+        line = line.replace("statistics.", "")
+        if line.startswith("println."):
+            line = line.replace("println.", "")
+            if line.startswith("mean("):
+                line = line.replace("mean(", "")
+                if ';' not in line:
+                    print("a: An error occured: Expected ';'")
+                else:
+                    line = line.replace(")", "")
+                    print(statistics.mean(line))
     else:
         print("a: An error occured: Unknown Identifier")
