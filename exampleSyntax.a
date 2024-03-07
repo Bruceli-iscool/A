@@ -1,0 +1,9 @@
+# this is a comment
+# a simple mathlib function
+math.println.sum(1+1);
+# var declaration
+x = 5;
+# procedures (not implemented yet)
+prod hi(){
+    echo 'hi';
+}
