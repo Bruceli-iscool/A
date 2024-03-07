@@ -45,7 +45,24 @@ def interpret_stdlib(line, varnames):
                         print(eval(line))
                     else:
                         print("a: An error occured: Unsupported operation")
+            elif line.startswith("product("):
+                line = line.lstrip("product(")
+                line = line.replace(")", "")
+                line = line.replace(" ", "")
+                for key, value in varnames.items():
+                    line = line.replace(str(key), str(value))
+                if ';' not in line:
+                    print("a: An error occured: Expected ';'")
+                else:
+                    line = line.replace(';', "")
+                    if '*' in line and '+' and '-' and '/' and '%' not in line:
+                        print(eval(line))
+                    else:
+                        print("a: An error occured: Unsupported operation")
         elif line.startswith("string."):
+            # string libary
             line = line.lstrip("string.")
             if line.startswith("newline()"):
                 print('\n')
+        else:
+            print("a: An error occured: Unknown Identifier")

@@ -13,6 +13,8 @@ def main():
             sys.exit()
         elif userinput.startswith(".test"):
             shell.shell()
+        elif len(userinput) < 1:
+            pass
         else:
             try:
                 open_file.open_file(userinput)
