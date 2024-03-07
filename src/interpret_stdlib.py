@@ -17,7 +17,7 @@ def interpret_stdlib(line, varnames):
                     print("a: An error occured: Expected ';'")
                 else:
                     print(eval(line))
-            if line.startswith("sum("):
+            elif line.startswith("sum("):
                 line = line.lstrip("sum(")
                 line = line.replace(")", "")
                 strline = line.replace(" ", "")
@@ -59,10 +59,24 @@ def interpret_stdlib(line, varnames):
                         print(eval(line))
                     else:
                         print("a: An error occured: Unsupported operation")
+            elif line.startswith("quotient("):
+                line = line.lstrip("quotient(")
+                line = line.replace(")", "")
+                line = line.replace(" ", "")
+                for key, value in varnames.items():
+                    line = line.replace(str(key), str(value))
+                if ';' not in line:
+                    print("a: An error occured: Expected ';'")
+                else:
+                    line = line.replace(';', "")
+                    if '/' in line and '+' and '-' and '*' and '%' not in line:
+                        print(eval(line))
+                    else:
+                        print("a: An error occured: Unsupported operation")
         elif line.startswith("string."):
             # string libary
             line = line.lstrip("string.")
             if line.startswith("newline()"):
                 print('\n')
-        else:
-            print("a: An error occured: Unknown Identifier")
+    else:
+        print("a: An error occured: Unknown Identifier")
