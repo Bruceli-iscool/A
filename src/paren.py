@@ -3,4 +3,3 @@ def open_paren(userinput):
         userinput = userinput.lstrip('(')
         userinput = userinput.rstrip(')')
         return eval(userinput)
-    

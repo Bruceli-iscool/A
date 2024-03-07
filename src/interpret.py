@@ -1,5 +1,3 @@
-import statistics
-import paren
 import interpret_stdlib
 
 var = {}
@@ -31,7 +29,3 @@ def interpret(line):
             var[varname] = value
     else:
         interpret_stdlib.interpret_stdlib(line, var)
-    
-
-    
-

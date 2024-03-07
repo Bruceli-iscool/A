@@ -1,7 +1,7 @@
-import interpret
+import sys
 import open_file
 import shell
-import sys
+
 
 def main():
     print("The A interpreter.\nlicense() for license or exit() to exit()\nType .test to use the interactive interperter.")
@@ -18,6 +18,6 @@ def main():
         else:
             try:
                 open_file.open_file(userinput)
-            except Exception as e:
+            except FileNotFoundError as e:
                 print(f"a: An error occured: {e}")
 main()

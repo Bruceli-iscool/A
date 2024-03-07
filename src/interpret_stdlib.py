@@ -79,10 +79,8 @@ def interpret_stdlib(line, varnames):
         line = line.lstrip("string.")
         if line.startswith("newline()"):
             print('\n')
-    
-    elif line.startswith("statistics"):
+    elif line.startswith("statistics."):
         # statistics libary
         pass
-        
     else:
         print("a: An error occured: Unknown Identifier")
