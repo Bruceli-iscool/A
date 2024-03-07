@@ -1,4 +1,4 @@
-import re
+import statistics
 
 def interpret_stdlib(line, varnames):
     """Interpret stdlib functions"""
@@ -73,10 +73,16 @@ def interpret_stdlib(line, varnames):
                         print(eval(line))
                     else:
                         print("a: An error occured: Unsupported operation")
-        elif line.startswith("string."):
-            # string libary
-            line = line.lstrip("string.")
-            if line.startswith("newline()"):
-                print('\n')
+
+    elif line.startswith("string."):
+        # string libary
+        line = line.lstrip("string.")
+        if line.startswith("newline()"):
+            print('\n')
+    
+    elif line.startswith("statistics"):
+        # statistics libary
+        pass
+        
     else:
         print("a: An error occured: Unknown Identifier")
