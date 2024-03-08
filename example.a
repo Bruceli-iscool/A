@@ -1,0 +1,14 @@
+# Demonstration of Package Names
+# NOT YET IMPLEMENTED!
+
+package.company.name();
+
+# function defs using the package
+
+# use package.function()
+
+package.function(name=hi[args=none]) {
+    return 0;
+};
+
+package.hi(args);
