@@ -91,6 +91,12 @@ def interpret_stdlib(line, varnames):
                     print("a: An error occured: Expected ';'")
                 else:
                     line = line.replace(")", "")
+                    line = line.replace(";", "")
+                    line = line.replace(" ", "")
+                    line = line.replace(",", "")
+                    line = list(line)
+                    line  = list(map(int, line))
+                    print(line)
                     print(statistics.mean(line))
     else:
         print("a: An error occured: Unknown Identifier")
