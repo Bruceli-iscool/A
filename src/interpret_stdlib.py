@@ -130,6 +130,16 @@ def interpret_stdlib(line, varnames, mode):
                         line = line.replace(str(key), str(value))
                     line = process_list(line)
                     print(statistics.mean(line))
+    elif line.startswith("System."):
+        # System libary
+        line = line.replace("System.", "")
+        if line.startswith("io."):
+            line = line.replace("io.", "")
+            if line.startswith("ain("):
+                line = line.replace("ain(", "")
+                line = line.replace(")", "")
+                line = input(line)
+                return line
     else:
         if mode == 1:
             print("a: An error occured: Unknown Identifier")
