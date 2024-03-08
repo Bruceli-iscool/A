@@ -92,11 +92,12 @@ def interpret_stdlib(line, varnames):
                 else:
                     line = line.replace(")", "")
                     line = line.replace(";", "")
+                    for key, value in varnames.items():
+                        line = line.replace(str(key), str(value))
                     line = line.replace(" ", "")
                     line = line.replace(",", "")
                     line = list(line)
                     line  = list(map(int, line))
-                    print(line)
                     print(statistics.mean(line))
     else:
         print("a: An error occured: Unknown Identifier")
