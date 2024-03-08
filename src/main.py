@@ -5,7 +5,7 @@ import shell
 
 def main():
     print(
-        "The A interpreter.\nlicense() for license or exit() to exit()\nType .test to use the interactive interperter."
+        "The A interpreter.\nlicense() for license or q() to exit\nType .test to use the interactive interperter."
     )
     while True:
         userinput = input(">")
@@ -13,7 +13,7 @@ def main():
             print(
                 "The A programming language is licensed under the Apache 2.0 license.\nThe license can be found here: https://www.apache.org/licenses/LICENSE-2.0."
             )
-        elif userinput.startswith("exit()"):
+        elif userinput.startswith("q()"):
             sys.exit()
         elif userinput.startswith(".test"):
             shell.shell()

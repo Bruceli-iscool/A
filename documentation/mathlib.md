@@ -17,3 +17,7 @@ The .return feature returns a value instead of printing it.
 
     # solve function
     x = math.return.solve(2+1/4);
+    # Sum function
+    x = math.return.sum(1 + 1);
+    # sub function
+    x = math.return.sub(1-1);

@@ -7,7 +7,6 @@ def process_list(string_value):
     integers = [int(num) for num in integers]
     return integers
 
-    return integers
 def interpret_stdlib(line, varnames, mode):
     """Interpret stdlib functions"""
     if line.startswith("math."):
@@ -90,6 +89,26 @@ def interpret_stdlib(line, varnames, mode):
                 for key, value in varnames.items():
                     line = line.replace(str(key), (value))
                 return eval(line)
+            if line.startswith("sum("):
+                line = line.replace("sum(", "")
+                line = line.replace(")", "")
+                line = line.replace(" ", "")
+                for key, value in varnames.items():
+                    line = line.replace(str(key), (value))
+                if "+" in line and "/" and "*" and "-" not in line:
+                    return eval(line)
+                else:
+                    print("a: An error occured: Unsupported operation")
+            if line.startswith("sub("):
+                    line = line.replace("sub(", "")
+                    line = line.replace(")", "")
+                    line = line.replace(" ", "")
+                    for key, value in varnames.items():
+                        line = line.replace(str(key), (value))
+                    if "-" in line and "/" and "*" and "+" not in line:
+                        return eval(line)
+                    else:
+                        print("a: An error occured: Unsupported operation")
     elif line.startswith("string."):
         # string libary
         line = line.lstrip("string.")

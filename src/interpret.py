@@ -7,7 +7,7 @@ def interpret(line):
     # find tokens and execute them
     if line.startswith("#"):
         pass
-    elif line.startswith("echo"):
+    elif line.startswith("echo") and "#" not in line:
         line = line.lstrip("echo ")
         for key, value in var.items():
             line = line.replace(str(key), str(value))
@@ -20,8 +20,9 @@ def interpret(line):
                 print(eval(line))
             except Exception as e:
                 line = line.replace(";", "")
+                line = interpret_stdlib.interpret_stdlib(line, var, 2)
                 print(line)
-    elif "=" in line:
+    elif "=" in line and "#" not in line:
         line = line.replace(" ", "")
         varname, value = line.split("=")
         if ";" not in line:
