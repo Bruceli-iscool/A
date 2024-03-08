@@ -6,4 +6,4 @@ x = 5;
 # procedures (not implemented yet)
 prod hi(){
     echo 'hi';
-}
+};
