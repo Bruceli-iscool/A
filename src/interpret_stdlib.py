@@ -1,7 +1,14 @@
 import statistics
+import re
 
+def process_list(string_value):
+    # process lists
+    integers = re.findall(r'\b\d+\b', string_value)
+    integers = [int(num) for num in integers]
+    return integers
 
-def interpret_stdlib(line, varnames):
+    return integers
+def interpret_stdlib(line, varnames, mode):
     """Interpret stdlib functions"""
     if line.startswith("math."):
         # math libary
@@ -74,7 +81,15 @@ def interpret_stdlib(line, varnames):
                         print(eval(line))
                     else:
                         print("a: An error occured: Unsupported operation")
-
+        if line.startswith("return."):
+            line = line.replace("return.", "")
+            if line.startswith("solve("):
+                line = line.replace("solve(", "")
+                line = line.replace(")", "")
+                line = line.replace(" ", "")
+                for key, value in varnames.items():
+                    line = line.replace(str(key), (value))
+                return eval(line)
     elif line.startswith("string."):
         # string libary
         line = line.lstrip("string.")
@@ -94,10 +109,10 @@ def interpret_stdlib(line, varnames):
                     line = line.replace(";", "")
                     for key, value in varnames.items():
                         line = line.replace(str(key), str(value))
-                    line = line.replace(" ", "")
-                    line = line.replace(",", "")
-                    line = list(line)
-                    line  = list(map(int, line))
+                    line = process_list(line)
                     print(statistics.mean(line))
     else:
-        print("a: An error occured: Unknown Identifier")
+        if mode == 1:
+            print("a: An error occured: Unknown Identifier")
+        else:
+            return line

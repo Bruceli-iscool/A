@@ -28,6 +28,7 @@ def interpret(line):
             print("a: An error occured: Expected ';'")
         else:
             value = value.replace(";", "")
+            value = interpret_stdlib.interpret_stdlib(value, var, 2)
             var[varname] = value
     else:
-        interpret_stdlib.interpret_stdlib(line, var)
+        interpret_stdlib.interpret_stdlib(line, var, 1)
