@@ -89,7 +89,7 @@ def interpret_stdlib(line, varnames, mode):
                 for key, value in varnames.items():
                     line = line.replace(str(key), (value))
                 return eval(line)
-            if line.startswith("sum("):
+            elif line.startswith("sum("):
                 line = line.replace("sum(", "")
                 line = line.replace(")", "")
                 line = line.replace(" ", "")
@@ -99,13 +99,23 @@ def interpret_stdlib(line, varnames, mode):
                     return eval(line)
                 else:
                     print("a: An error occured: Unsupported operation")
-            if line.startswith("sub("):
+            elif line.startswith("sub("):
                     line = line.replace("sub(", "")
                     line = line.replace(")", "")
                     line = line.replace(" ", "")
                     for key, value in varnames.items():
                         line = line.replace(str(key), (value))
                     if "-" in line and "/" and "*" and "+" not in line:
+                        return eval(line)
+                    else:
+                        print("a: An error occured: Unsupported operation")
+            elif line.startswith("product("):
+                    line = line.replace("product(", "")
+                    line = line.replace(")", "")
+                    line = line.replace(" ", "")
+                    for key, value in varnames.items():
+                        line = line.replace(str(key), (value))
+                    if "*" in line and "/" and "-" and "+" not in line:
                         return eval(line)
                     else:
                         print("a: An error occured: Unsupported operation")

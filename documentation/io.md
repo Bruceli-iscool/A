@@ -6,4 +6,4 @@ In programming, input and output is very important. In A output can be done with
         echo 1 + 55/5;
 Input can be used with the System libary function:
 
-        System.io.ain(">");
+        x = System.io.ain(">");

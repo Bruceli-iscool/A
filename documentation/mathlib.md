@@ -21,3 +21,5 @@ The .return feature returns a value instead of printing it.
     x = math.return.sum(1 + 1);
     # sub function
     x = math.return.sub(1-1);
+    # product
+    x = math.return.product(1*1);
