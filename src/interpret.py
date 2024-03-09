@@ -30,6 +30,10 @@ def interpret(line):
         else:
             value = value.replace(";", "")
             value = interpret_stdlib.interpret_stdlib(value, var, 2)
+            try:
+                eval(value)
+            except Exception as e:
+                pass
             var[varname] = value
     else:
         interpret_stdlib.interpret_stdlib(line, var, 1)
