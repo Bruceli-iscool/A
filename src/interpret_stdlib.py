@@ -150,6 +150,17 @@ def interpret_stdlib(line, varnames, mode):
                         line = line.replace(str(key), str(value))
                     line = process_list(line)
                     print(statistics.mean(line))
+            elif line.startswith("mode("):
+                line = line.replace("mode(", "")
+                if ';' not in line:
+                    print("a: An error occured: Expected ';'")
+                else:
+                    line = line.replace(")", "")
+                    line = line.replace(";", "")
+                    for key, value in varnames.items():
+                        line = line.replace(str(key), str(value))
+                    line = process_list(line)
+                    print(statistics.mode(line))
     elif line.startswith("System."):
         # System libary
         line = line.replace("System.", "")
