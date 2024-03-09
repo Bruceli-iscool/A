@@ -23,3 +23,9 @@ The .return feature returns a value instead of printing it.
     x = math.return.sub(1-1);
     # product
     x = math.return.product(1*1);
+    # quotient
+    x = math.return.quotient(1/1);
+
+Test x:
+
+    echo x;

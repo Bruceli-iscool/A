@@ -119,6 +119,16 @@ def interpret_stdlib(line, varnames, mode):
                         return eval(line)
                     else:
                         print("a: An error occured: Unsupported operation")
+            elif line.startswith("quotient("):
+                    line = line.replace("quotient(", "")
+                    line = line.replace(")", "")
+                    line = line.replace(" ", "")
+                    for key, value in varnames.items():
+                        line = line.replace(str(key), (value))
+                    if "/" in line and "*" and "-" and "+" not in line:
+                        return eval(line)
+                    else:
+                        print("a: An error occured: Unsupported operation")
     elif line.startswith("string."):
         # string libary
         line = line.lstrip("string.")
