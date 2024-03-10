@@ -14,3 +14,7 @@ An example of easy Syntax:
 
     # math libary's println function's function called sum
     math.println.sum(1+1);
+
+# Use A
+Article:
+https://github.com/Bruceli-iscool/A/wiki/Use-A-locally
