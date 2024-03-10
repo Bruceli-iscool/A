@@ -14,8 +14,10 @@ def shell():
         elif len(userinput) < 1:
             pass
         else:
-            mode, name = interpret.functions_process(userinput)
-            mode = mode
+            if '}' not in userinput and not detect and '{' not in userinput:
+                detect = False
+                mode, name = interpret.functions_process(userinput)
+                mode = mode
             if '{' in userinput:
                 detect = True
                 interpret.interpret(userinput, 1, name)
@@ -23,6 +25,5 @@ def shell():
                 detect = False
             elif detect:
                 interpret.interpret(userinput, 1, name)
-            else:
-                interpret.interpret(userinput, 0, 0)
+
 
