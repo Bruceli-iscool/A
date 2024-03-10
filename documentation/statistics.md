@@ -7,3 +7,7 @@ StatisticsLib is the official libary for statistics.
     statistics.println.mode(1, 5, 4);
     # find the median
     statistics.println.median(1, 2, 3,4);
+Return the answer to a variable
+
+    # mean
+    x = statistics.return.mean(1, 2, 3);

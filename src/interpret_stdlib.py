@@ -172,6 +172,32 @@ def interpret_stdlib(line, varnames, mode):
                         line = line.replace(str(key), str(value))
                     line = process_list(line)
                     print(statistics.median(line))
+        elif line.startswith("return."):
+            line = line.replce("return.", "")
+            if line.startswith("mean("):
+                    line = line.replace("mean(", "")
+                    line = line.replace(")", "")
+                    line = line.replace(";", "")
+                    for key, value in varnames.items():
+                        line = line.replace(str(key), str(value))
+                    line = process_list(line)
+                    return statistics.mean(line)
+            elif line.startswith("mode("):
+                    line = line.replace("mode(", "")
+                    line = line.replace(")", "")
+                    line = line.replace(";", "")
+                    for key, value in varnames.items():
+                        line = line.replace(str(key), str(value))
+                    line = process_list(line)
+                    return statistics.mode(line)
+            elif line.startswith("median("):
+                    line = line.replace("median(", "")
+                    line = line.replace(")", "")
+                    line = line.replace(";", "")
+                    for key, value in varnames.items():
+                        line = line.replace(str(key), str(value))
+                    line = process_list(line)
+                    return statistics.median(line)
     elif line.startswith("System."):
         # System libary
         line = line.replace("System.", "")
@@ -181,6 +207,10 @@ def interpret_stdlib(line, varnames, mode):
                 line = line.replace("ain(", "")
                 line = line.replace(")", "")
                 line = input(line)
+                try:
+                    line = int(line)
+                except Exception as e:
+                    line = '"' + line + '"'
                 return line
     else:
         if mode == 1 and len(line) != 0 or 1:
