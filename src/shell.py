@@ -14,4 +14,8 @@ def shell():
         elif len(userinput) < 1:
             pass
         else:
-            interpret.interpret(userinput)
+            mode, name = interpret.functions_process(userinput)
+            if mode == 1:
+                interpret.interpret(userinput, 1, name)
+            else:
+                interpret.interpret(userinput, 0, 0)
