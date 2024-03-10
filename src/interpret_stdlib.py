@@ -183,7 +183,7 @@ def interpret_stdlib(line, varnames, mode):
                 line = input(line)
                 return line
     else:
-        if mode == 1:
+        if mode == 1 and len(line) != 0 or 1:
             print("a: An error occured: Unknown Identifier")
         else:
             return line

@@ -1,0 +1,4 @@
+# Add one number to input
+# No spaces issue
+userinput = System.io.ain(give_me_a_number: );
+math.println.sum(1 + userinput);
