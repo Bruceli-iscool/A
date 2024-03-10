@@ -8,8 +8,11 @@ def interpret(line, mode, name):
     if mode == 1:
         line = functions_process(line, 2)
         functions[name] = functions[name] + ":" + line
-        print(functions[name])
-        return
+        if line.startswith("}"):
+            mode = 2
+            return mode
+        else:
+            return
     else:
         if line.startswith("#"):
             return
@@ -46,25 +49,12 @@ def interpret(line, mode, name):
         else:
             interpret_stdlib.interpret_stdlib(line, var, 1)
 
-def functions_process(line, mode=1):
-    if mode ==1:
+def functions_process(line):
         if line.startswith("func"):
             line = line.replace("func ", "")
             line = line.replace(" ", "")
             line= line.replace("{", "")
-            functions[line] = ""
-            mode = 1
-            name = line
-            return mode, name
-        else:
-            interpret(line, 0,0)
-            return 0, 0
-    else:
-        if line.startswith("func"):
-            line = line.replace("func ", "")
-            line = line.replace(" ", "")
-            line= line.replace("{", "")
-            return line
+        return line
 
 
 def unpack_function():

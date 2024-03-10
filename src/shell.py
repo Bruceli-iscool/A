@@ -15,7 +15,14 @@ def shell():
             pass
         else:
             mode, name = interpret.functions_process(userinput)
-            if mode == 1:
+            mode = mode
+            if '{' in userinput:
+                detect = True
+                interpret.interpret(userinput, 1, name)
+            elif '}' in userinput:
+                detect = False
+            elif detect:
                 interpret.interpret(userinput, 1, name)
             else:
                 interpret.interpret(userinput, 0, 0)
+
